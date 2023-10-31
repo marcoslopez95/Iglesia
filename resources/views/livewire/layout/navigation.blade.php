@@ -33,6 +33,11 @@ new class extends Component
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link :href="route('settings')" :active="request()->routeIs('settings')" wire:navigate>
+                        Configuraciones
+                    </x-nav-link>
+                </div>
             </div>
 
             <!-- Settings Dropdown -->

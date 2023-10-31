@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('left_logo')->nullable();
             $table->string('right_logo')->nullable();
-            $table->string('header')->nullable();
+            $table->text('header')->nullable();
             $table->string('digital_firm')->nullable();
             $table->string('parroco')->nullable();
             $table->timestamps();
