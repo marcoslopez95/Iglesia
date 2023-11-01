@@ -1,5 +1,7 @@
 <?php
 
+use App\Livewire\Bautismo\BautismoCreateView;
+use App\Livewire\BautismoView;
 use App\Livewire\Settings\SettingView;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +27,7 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::get('settings',SettingView::class)->middleware(['auth'])->name('settings');
+Route::get('bautismos',BautismoView::class)->middleware(['auth'])->name('bautismos');
+Route::get('bautismos/create',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.create');
 
 require __DIR__.'/auth.php';

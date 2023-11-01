@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class DocumentType extends Model
 {
     use HasFactory;
+
+    public const BAUTISMO     = 1;
+    public const MATRIMONIO   = 2;
+    public const CONFIRMACION = 3;
 }
