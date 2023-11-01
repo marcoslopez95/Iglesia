@@ -23,6 +23,18 @@
 
                     <form wire:submit="updateSettings" class="mt-6 space-y-6">
                         <div>
+                            <x-input-label for="parroquia" value="Parroquia" />
+                            <x-text-input wire:model="parroquia" id="parroquia" name="parroquia" type="text"
+                                class="mt-1 block w-full" required autofocus autocomplete="Nombre Completo..." />
+                            <x-input-error class="mt-2" :messages="$errors->get('parroquia')" />
+                        </div>
+                        <div>
+                            <x-input-label for="diosesis" value="Diosesis" />
+                            <x-text-input wire:model="diosesis" id="diosesis" name="diosesis" type="text"
+                                class="mt-1 block w-full" required autofocus autocomplete="Nombre Completo..." />
+                            <x-input-error class="mt-2" :messages="$errors->get('diosesis')" />
+                        </div>
+                        <div>
                             <x-input-label for="parroco" value="Prebistero" />
                             <x-text-input wire:model="parroco" id="parroco" name="parroco" type="text"
                                 class="mt-1 block w-full" required autofocus autocomplete="Nombre Completo..." />

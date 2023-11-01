@@ -15,6 +15,8 @@ class Setting extends Model
         'header',
         'digital_firm',
         'parroco',
+        'parroquia',
+        'diosesis'
     ];
 
     protected function LeftLogo(): Attribute

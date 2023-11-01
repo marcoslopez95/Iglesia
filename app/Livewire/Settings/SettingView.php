@@ -15,6 +15,8 @@ class SettingView extends Component
 {
     use WithFileUploads;
     public $header = '';
+    public $parroquia = '';
+    public $diosesis = '';
     #[Rule('image|max:1024')]
     public $logo_left;
 
@@ -35,6 +37,8 @@ class SettingView extends Component
         $setting = Setting::first();
         if(!$setting) return;
         $this->header       = $setting->header;
+        $this->parroquia    = $setting->parroquia;
+        $this->diosesis     = $setting->diosesis;
         $this->logo_left    = $setting->left_logo;
         $this->logo_right   = $setting->right_logo;
         $this->digital_firm = $setting->digital_firm;
@@ -46,6 +50,8 @@ class SettingView extends Component
         $setting = Setting::first();
         $validated = $this->validate([
             'header' => 'required|string',
+            'parroquia' => 'required|string',
+            'diosesis' => 'required|string',
             'parroco' => 'required|string',
             'logo_left' => 'nullable',
             'logo_right' => 'nullable',
