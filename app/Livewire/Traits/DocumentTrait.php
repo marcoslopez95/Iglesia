@@ -19,4 +19,11 @@ trait DocumentTrait {
         Document::create($validated);
 
     }
+
+    public function updateDocument(array $validated, int $id)
+    {
+        $document = Document::find($id);
+        $document->update($validated);
+
+    }
 }

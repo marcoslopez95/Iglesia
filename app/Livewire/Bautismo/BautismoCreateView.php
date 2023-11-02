@@ -23,6 +23,25 @@ class BautismoCreateView extends Component
     public $godparents_2;
     public $ending;
 
+    public function mount()
+    {
+        if(request()->bautismo_id){
+            $document = Document::find(request()->bautismo_id);
+            $this->child = $document->child;
+            $this->mother = $document->mother;
+            $this->father = $document->father;
+            $this->place_birth = $document->place_birth;
+            $this->birth = $document->birth;
+            $this->date = $document->date;
+            $this->godparents_1 = $document->godparents_1;
+            $this->godparents_2 = $document->godparents_2;
+            $this->ending = $document->ending;
+            $this->num_libro = $document->num_libro;
+            $this->num_folio = $document->num_folio;
+            $this->num = $document->num;
+        }
+    }
+
     #[Layout('layouts.app')]
     public function render()
     {
@@ -46,7 +65,11 @@ class BautismoCreateView extends Component
             'num' => 'required|string',
         ]);
 
-        $this->saveDocument($validated,DocumentType::BAUTISMO);
+        if(request()->bautismo_id){
+            $this->updateDocument($validated, request()->bautismo_id);
+        }else{
+            $this->saveDocument($validated,DocumentType::BAUTISMO);
+        }
 
         $this->redirect(route('bautismos'));
 

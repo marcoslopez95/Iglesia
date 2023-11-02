@@ -5,9 +5,11 @@ namespace App\Livewire;
 use App\Models\Document;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class BautismoView extends Component
 {
+    use WithPagination;
     public $headers = [
         [
             'title' => 'Núm.',
@@ -48,5 +50,13 @@ class BautismoView extends Component
         return response()->download(
             $this->invoice->file_path, 'invoice.pdf'
         );
+    }
+
+    public function delete(int $id)
+    {
+        $document = Document::find($id);
+        if(!$document) return;
+        $document->delete();
+        $this->resetPage();
     }
 }

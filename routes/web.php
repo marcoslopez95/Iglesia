@@ -29,5 +29,6 @@ Route::view('profile', 'profile')
 Route::get('settings',SettingView::class)->middleware(['auth'])->name('settings');
 Route::get('bautismos',BautismoView::class)->middleware(['auth'])->name('bautismos');
 Route::get('bautismos/create',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.create');
+Route::get('bautismos/{bautismo_id}',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.show');
 
 require __DIR__.'/auth.php';
