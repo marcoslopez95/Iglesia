@@ -23,6 +23,8 @@ class Document extends Model
         'godparents_1',
         'godparents_2',
         'ending',
+        'observation',
+
         'num_libro',
         'num_folio',
         'num',

@@ -39,17 +39,17 @@ new class extends Component
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('confirmaciones')" :active="request()->routeIs('confirmaciones')" wire:navigate>
+                    <x-nav-link :href="route('confirmaciones')" :active="request()->routeIs('confirmaciones') || request()->routeIs('confirmaciones.*')" wire:navigate>
                         Confirmación
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('matrimonios')" :active="request()->routeIs('matrimonios')" wire:navigate>
+                    <x-nav-link :href="route('matrimonios')" :active="request()->routeIs('matrimonios') || request()->routeIs('matrimonios.*')" wire:navigate>
                         Matrimonios
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('bautismos')" :active="request()->routeIs('bautismos')" wire:navigate>
+                    <x-nav-link :href="route('bautismos')" :active="request()->routeIs('bautismos') || request()->routeIs('bautismos.*')" wire:navigate>
                         Baustismos
                     </x-nav-link>
                 </div>

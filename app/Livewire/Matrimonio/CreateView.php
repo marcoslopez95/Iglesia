@@ -22,6 +22,7 @@ class CreateView extends Component
     public $godparents_1;
     public $godparents_2;
     public $ending;
+    public $observation;
 
     public $id;
     public function mount()
@@ -41,6 +42,7 @@ class CreateView extends Component
             $this->num_libro = $document->num_libro;
             $this->num_folio = $document->num_folio;
             $this->num = $document->num;
+            $this->observation = $document->observation;
         }
     }
 
@@ -65,6 +67,7 @@ class CreateView extends Component
             'num_libro' => 'required|string',
             'num_folio' => 'required|string',
             'num' => 'required|string',
+            'observation' => 'nullable|string',
         ]);
 
         // dd(args: $this->id);

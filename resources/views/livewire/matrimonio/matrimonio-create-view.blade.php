@@ -60,6 +60,14 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('godparents_2')" />
                                 </div>
                             </div>
+                            <div class="grid grid-cols-1 gap-10">
+                                <div>
+                                    <x-input-label for="observation" value="Observaciones" />
+                                    <x-text-tarea wire:model="date" id="observation" name="observation"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('observation')" />
+                                </div>
+                            </div>
                             @include('livewire.numsComponent')
                             <div class="flex items-center gap-4">
                                 <x-primary-button>
