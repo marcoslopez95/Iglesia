@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Bautismo;
+namespace App\Livewire\Matrimonio;
 
 use App\Livewire\Traits\DocumentTrait;
 use App\Models\Document;
@@ -9,7 +9,7 @@ use App\Models\Setting;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class BautismoCreateView extends Component
+class CreateView extends Component
 {
     use DocumentTrait;
 
@@ -22,13 +22,13 @@ class BautismoCreateView extends Component
     public $godparents_1;
     public $godparents_2;
     public $ending;
-    public $id;
 
+    public $id;
     public function mount()
     {
-        if(request()->bautismo_id){
-            $this->id = request()->bautismo_id;
-            $document = Document::find(request()->bautismo_id);
+        if(request()->matrimonio_id){
+            $this->id = request()->matrimonio_id;
+            $document = Document::find(request()->matrimonio_id);
             $this->child = $document->child;
             $this->mother = $document->mother;
             $this->father = $document->father;
@@ -47,17 +47,17 @@ class BautismoCreateView extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.bautismo.bautismo-create-view');
+        return view('livewire.matrimonio.matrimonio-create-view');
     }
 
     public function save()
     {
         $validated = $this->validate([
-            'child' => 'required|string',
-            'mother' => 'nullable|string',
-            'father' => 'nullable|string',
-            'place_birth' => 'nullable|string',
-            'birth' => 'nullable|date',
+            // 'child' => 'required|string',
+            'mother' => 'required|string',
+            'father' => 'required|string',
+            // 'place_birth' => 'nullable|string',
+            // 'birth' => 'nullable|date',
             'date' => 'nullable|date',
             'godparents_1' => 'nullable|string',
             'godparents_2' => 'nullable|string',
@@ -67,13 +67,14 @@ class BautismoCreateView extends Component
             'num' => 'required|string',
         ]);
 
+        // dd(args: $this->id);
         if($this->id){
             $this->updateDocument($validated, $this->id);
         }else{
-            $this->saveDocument($validated,DocumentType::BAUTISMO);
+            $this->saveDocument($validated,DocumentType::MATRIMONIO);
         }
 
-        $this->redirect(route('bautismos'));
+        $this->redirect(route('matrimonios'));
 
     }
 }

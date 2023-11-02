@@ -7,7 +7,7 @@ use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class BautismoView extends Component
+class ConfirmacionView extends Component
 {
     use WithPagination;
     public $headers = [
@@ -41,8 +41,8 @@ class BautismoView extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.bautismo-view',[
-            'documents' => Document::OnlyBautismos()->paginate(15)
+        return view('livewire.confirmacion-view',[
+            'documents' => Document::onlyConfirmaciones()->paginate(15)
         ]);
     }
     public function download(int $id)

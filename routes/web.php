@@ -2,6 +2,10 @@
 
 use App\Livewire\Bautismo\BautismoCreateView;
 use App\Livewire\BautismoView;
+use App\Livewire\Confirmacion\CreateView as ConfirmacionCreateView;
+use App\Livewire\ConfirmacionView;
+use App\Livewire\Matrimonio\CreateView as MatrimonioCreateView;
+use App\Livewire\MatrimonioView;
 use App\Livewire\Settings\SettingView;
 use Illuminate\Support\Facades\Route;
 
@@ -27,8 +31,16 @@ Route::view('profile', 'profile')
     ->name('profile');
 
 Route::get('settings',SettingView::class)->middleware(['auth'])->name('settings');
+
 Route::get('bautismos',BautismoView::class)->middleware(['auth'])->name('bautismos');
 Route::get('bautismos/create',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.create');
 Route::get('bautismos/{bautismo_id}',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.show');
 
+Route::get('matrimonios',MatrimonioView::class)->middleware(['auth'])->name('matrimonios');
+Route::get('matrimonios/create',action: MatrimonioCreateView::class)->middleware(['auth'])->name('matrimonios.create');
+Route::get('matrimonios/{matrimonio_id}',MatrimonioCreateView::class)->middleware(['auth'])->name('matrimonios.show');
+
+Route::get('confirmaciones',ConfirmacionView::class)->middleware(['auth'])->name('confirmaciones');
+Route::get('confirmaciones/create',ConfirmacionCreateView::class)->middleware(['auth'])->name('confirmaciones.create');
+Route::get('confirmaciones/{confirmacion_id}',ConfirmacionCreateView::class)->middleware(['auth'])->name('confirmaciones.show');
 require __DIR__.'/auth.php';

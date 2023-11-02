@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Bautismo;
+namespace App\Livewire\Confirmacion;
 
 use App\Livewire\Traits\DocumentTrait;
 use App\Models\Document;
@@ -9,7 +9,7 @@ use App\Models\Setting;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 
-class BautismoCreateView extends Component
+class CreateView extends Component
 {
     use DocumentTrait;
 
@@ -26,9 +26,9 @@ class BautismoCreateView extends Component
 
     public function mount()
     {
-        if(request()->bautismo_id){
-            $this->id = request()->bautismo_id;
-            $document = Document::find(request()->bautismo_id);
+        if(request()->confirmacion_id){
+            $this->id = request()->confirmacion_id  ;
+            $document = Document::find(request()->confirmacion_id);
             $this->child = $document->child;
             $this->mother = $document->mother;
             $this->father = $document->father;
@@ -47,7 +47,7 @@ class BautismoCreateView extends Component
     #[Layout('layouts.app')]
     public function render()
     {
-        return view('livewire.bautismo.bautismo-create-view');
+        return view('livewire.confirmacion.confirmacion-create-view');
     }
 
     public function save()
@@ -70,10 +70,10 @@ class BautismoCreateView extends Component
         if($this->id){
             $this->updateDocument($validated, $this->id);
         }else{
-            $this->saveDocument($validated,DocumentType::BAUTISMO);
+            $this->saveDocument($validated,DocumentType::CONFIRMACION);
         }
 
-        $this->redirect(route('bautismos'));
+        $this->redirect(route('confirmaciones'));
 
     }
 }
