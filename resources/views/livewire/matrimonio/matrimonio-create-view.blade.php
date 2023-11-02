@@ -40,10 +40,10 @@
                             </div>
                             <div class="grid grid-cols-2 gap-10">
                                 <div>
-                                    <x-input-label for="birth" value="Fecha de Matrimonio Canónico" />
-                                    <x-text-input wire:model="birth" id="birth" name="birth" type="date"
+                                    <x-input-label for="date" value="Fecha de Matrimonio Canónico" />
+                                    <x-text-input wire:model="date" id="date" name="date" type="date"
                                         class="mt-1 block w-full"/>
-                                    <x-input-error class="mt-2" :messages="$errors->get('birth')" />
+                                    <x-input-error class="mt-2" :messages="$errors->get('date')" />
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-10">

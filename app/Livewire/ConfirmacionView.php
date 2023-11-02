@@ -25,7 +25,7 @@ class ConfirmacionView extends Component
         ],
         [
             'title' => 'Fecha',
-            'value' => 'num'
+            'value' => 'date'
         ],
         [
             'title' => 'Titular',

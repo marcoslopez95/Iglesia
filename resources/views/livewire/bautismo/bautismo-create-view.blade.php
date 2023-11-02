@@ -54,6 +54,20 @@
                             </div>
                             <div class="grid grid-cols-2 gap-10">
                                 <div>
+                                    <x-input-label for="godparents_1" value="Padrino/Madrina" />
+                                    <x-text-input wire:model="godparents_1" id="godparents_1" name="godparents_1" type="text"
+                                        class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('godparents_1')" />
+                                </div>
+                                <div>
+                                    <x-input-label for="godparents_2" value="Padrino/Madrina" />
+                                    <x-text-input wire:model="godparents_2" id="godparents_2" name="godparents_2" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('godparents_2')" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
                                     <x-input-label for="birth" value="Fecha de Nacimiento" />
                                     <x-text-input wire:model="birth" id="birth" name="birth" type="date"
                                         class="mt-1 block w-full"/>

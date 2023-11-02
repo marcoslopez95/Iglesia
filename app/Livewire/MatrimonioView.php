@@ -25,11 +25,15 @@ class MatrimonioView extends Component
         ],
         [
             'title' => 'Fecha',
-            'value' => 'num'
+            'value' => 'date'
         ],
         [
-            'title' => 'Titular',
-            'value' => 'child'
+            'title' => 'Esposa',
+            'value' => 'mother'
+        ],
+        [
+            'title' => 'Esposo',
+            'value' => 'father'
         ],
         [
             'title' => 'Acciones',
