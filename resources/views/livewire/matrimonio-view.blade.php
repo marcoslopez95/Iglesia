@@ -55,7 +55,7 @@
                                                         </svg>
                                                     </button>
                                                 </form>
-                                                <form wire:submit="download({{ $document->id }})">
+                                                <a target="_blank" href="{{ route('matrimonios.report',['matrimonio_id'=>$document->id]) }}">
                                                     <button type="submit">
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none"
                                                             viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -65,7 +65,7 @@
                                                         </svg>
 
                                                     </button>
-                                                </form>
+                                                </a>
                                             </div>
                                         @endif
                                     </td>

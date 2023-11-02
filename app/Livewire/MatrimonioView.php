@@ -41,12 +41,29 @@ class MatrimonioView extends Component
         ],
     ];
 
+    public $filter = [
+        'num' => '',
+        'num_folio' => '',
+        'num_libro' => '',
+        'birth' => '',
+        'date' => '',
+        'ci_child' => '',
+        'ci_mother' => '',
+        'ci_father' => '',
+        'ci_godparents_1' => '',
+        'ci_godparents_2' => '',
+    ];
+
+    public function search()
+    {
+        $this->resetPage();
+    }
 
     #[Layout('layouts.app')]
     public function render()
     {
         return view('livewire.matrimonio-view',[
-            'documents' => Document::onlyMatrimonios()->paginate(15)
+            'documents' => Document::filter($this->filter)->onlyMatrimonios()->paginate(15)
         ]);
     }
     public function download(int $id)

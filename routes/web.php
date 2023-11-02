@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ReportController;
 use App\Livewire\Bautismo\BautismoCreateView;
 use App\Livewire\BautismoView;
 use App\Livewire\Confirmacion\CreateView as ConfirmacionCreateView;
@@ -41,15 +42,7 @@ Route::get('bautismos/{bautismo_id}',BautismoCreateView::class)->middleware(['au
 Route::get('matrimonios',MatrimonioView::class)->middleware(['auth'])->name('matrimonios');
 Route::get('matrimonios/create',action: MatrimonioCreateView::class)->middleware(['auth'])->name('matrimonios.create');
 Route::get('matrimonios/{matrimonio_id}',MatrimonioCreateView::class)->middleware(['auth'])->name('matrimonios.show');
-Route::get('matrimonios/{matrimonio_id}/report',function($matrimonio_id){
-    $document = Document::find($matrimonio_id);
-    $setting = Setting::first();
-    $data['document'] = $document;
-    $data['setting'] = $setting;
-    $data['created'] = \Carbon\Carbon::now();
-    $data['date'] = \Carbon\Carbon::parse($document->date);
-    return view('reports.matrimonio',$data);
-})->middleware(['auth'])->name('matrimonios.report');
+Route::get('matrimonios/{matrimonio_id}/report',[ReportController::class,'matrimonios'])->middleware(['auth'])->name('matrimonios.report');
 
 Route::get('confirmaciones',ConfirmacionView::class)->middleware(['auth'])->name('confirmaciones');
 Route::get('confirmaciones/create',ConfirmacionCreateView::class)->middleware(['auth'])->name('confirmaciones.create');
