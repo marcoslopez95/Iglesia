@@ -50,7 +50,7 @@ new class extends Component
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('bautismos')" :active="request()->routeIs('bautismos') || request()->routeIs('bautismos.*')" wire:navigate>
-                        Baustismos
+                        Bautizos
                     </x-nav-link>
                 </div>
             </div>
