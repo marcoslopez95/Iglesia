@@ -47,4 +47,5 @@ Route::get('matrimonios/{matrimonio_id}/report',[ReportController::class,'matrim
 Route::get('confirmaciones',ConfirmacionView::class)->middleware(['auth'])->name('confirmaciones');
 Route::get('confirmaciones/create',ConfirmacionCreateView::class)->middleware(['auth'])->name('confirmaciones.create');
 Route::get('confirmaciones/{confirmacion_id}',ConfirmacionCreateView::class)->middleware(['auth'])->name('confirmaciones.show');
+Route::get('confirmaciones/{confirmacion_id}/report',[ReportController::class,'confirmaciones'])->middleware(['auth'])->name('confirmaciones.report');
 require __DIR__.'/auth.php';

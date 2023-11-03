@@ -25,6 +25,19 @@ class ReportController extends Controller
         return self::generateReport($html, self::MATRIMONIO);
     }
 
+    public function confirmaciones($confirmaction_id)
+    {
+        $document = Document::find($confirmaction_id);
+        $setting = Setting::first();
+        $data['document'] = $document;
+        $data['setting'] = $setting;
+        $data['created'] = \Carbon\Carbon::now();
+        $data['date'] = \Carbon\Carbon::parse($document->date);
+        $html = view('reports.confirmacion', $data);
+
+        return self::generateReport($html, self::CONFIRMACION);
+    }
+
     private function generateReport($html, string $type){
         $pdf = new Mpdf();
         $name = "$type-".\Carbon\Carbon::now()->format('d-m-Y_H:i:s');
