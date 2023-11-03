@@ -43,6 +43,7 @@ class BautismoCreateView extends Component
             $this->num_folio = $document->num_folio;
             $this->num = $document->num;
             $this->observation = $document->observation;
+            $this->by_priets = $document->by_priets;
         }
     }
 

@@ -38,6 +38,7 @@ Route::get('settings',SettingView::class)->middleware(['auth'])->name('settings'
 Route::get('bautismos',BautismoView::class)->middleware(['auth'])->name('bautismos');
 Route::get('bautismos/create',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.create');
 Route::get('bautismos/{bautismo_id}',BautismoCreateView::class)->middleware(['auth'])->name('bautismos.show');
+Route::get('bautismos/{bautismo_id}/report',[ReportController::class,'bautismos'])->middleware(['auth'])->name('bautismos.report');
 
 Route::get('matrimonios',MatrimonioView::class)->middleware(['auth'])->name('matrimonios');
 Route::get('matrimonios/create',action: MatrimonioCreateView::class)->middleware(['auth'])->name('matrimonios.create');

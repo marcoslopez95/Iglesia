@@ -66,9 +66,18 @@
                                     <x-text-input wire:model="date" id="date" name="date" type="date"
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
                                     <x-input-error class="mt-2" :messages="$errors->get('date')" />
+                                </div><div>
+                                    <x-input-label for="by_priets" value="Confirmado por" />
+                                    <x-text-input wire:model="by_priets" id="by_priets" name="by_priets" type="text"
+                                    class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('birth')" />
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            Si lo deja vacío se cargara con los datos del parroco cargado en configuraciones
+                                        </p>
                                 </div>
                             </div>
-                            <div class="grid grid-cols-1 gap-10">
+                            <div class="grid grid-cols-2 gap-10">
+
                                 <div>
                                     <x-input-label for="observation" value="Observaciones" />
                                     <x-text-tarea wire:model="observation" id="observation" name="observation"

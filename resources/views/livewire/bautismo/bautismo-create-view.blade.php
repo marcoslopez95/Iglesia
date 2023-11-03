@@ -80,6 +80,17 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('date')" />
                                 </div>
                             </div>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
+                                    <x-input-label for="by_priets" value="Confirmado por" />
+                                    <p class="mt-1 text-sm text-gray-600">
+                                        Si lo deja vacío se cargara con los datos del parroco cargado en configuraciones
+                                    </p>
+                                    <x-text-input wire:model="by_priets" id="by_priets" name="by_priets" type="text"
+                                        class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('birth')" />
+                                </div>
+                            </div>
                             <div class="grid grid-cols-1 gap-10">
                                 <div>
                                     <x-input-label for="observation" value="Observaciones" />

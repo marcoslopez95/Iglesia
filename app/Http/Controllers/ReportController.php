@@ -38,6 +38,20 @@ class ReportController extends Controller
         return self::generateReport($html, self::CONFIRMACION);
     }
 
+    public function bautismos($bautismo_id)
+    {
+        $document = Document::find($bautismo_id);
+        $setting = Setting::first();
+        $data['document'] = $document;
+        $data['setting'] = $setting;
+        $data['created'] = \Carbon\Carbon::now();
+        $data['date'] = \Carbon\Carbon::parse($document->date);
+        $data['birth'] = \Carbon\Carbon::parse($document->birth);
+        $html = view('reports.bautizo', $data);
+
+        return self::generateReport($html, self::BAUTISMO);
+    }
+
     private function generateReport($html, string $type){
         $pdf = new Mpdf();
         $name = "$type-".\Carbon\Carbon::now()->format('d-m-Y_H:i:s');

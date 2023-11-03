@@ -9,11 +9,13 @@ trait DocumentTrait {
     public $num_libro = '';
     public $num_folio = '';
     public $num = '';
+
+    public $by_priets = '';
     public function saveDocument(array $validated, int $type_document)
     {
         $validated = array_merge([
             'document_type_id' => $type_document,
-            'by_priets' => (Setting::first())->parroco,
+            'by_priets' => $this->by_priets ?? (Setting::first())->parroco,
         ],$validated);
 
         Document::create($validated);
