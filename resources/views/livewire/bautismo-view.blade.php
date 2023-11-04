@@ -5,6 +5,9 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Bautizos
         </h2>
+        @include('components.filter-component')
+        {{-- <x-filter-component :show="$showModal"></x-filter-component> --}}
+
         <div>
             <x-btn-primary href="{{ route('bautismos.create') }}">
                 Crear

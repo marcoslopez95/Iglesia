@@ -5,6 +5,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Matrimonios
         </h2>
+        @include('components.filter-component')
         <div>
             <x-btn-primary href="{{ route('matrimonios.create') }}">
                 Crear

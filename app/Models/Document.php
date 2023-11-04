@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -36,19 +37,43 @@ class Document extends Model
         'ci_godparents_2',
     ];
 
-    public function scopeFilter(Builder $q, $request)
+    public function scopeFilter(Builder $q,  $request)
     {
+
         return $q
-                ->when($request['num'],fn(Builder $q,$num) => $q->where('num',$num))
-                ->when($request['num_folio'],fn(Builder $q,$num_folio) => $q->where('num_folio',$num_folio))
-                ->when($request['num_libro'],fn(Builder $q,$num_libro) => $q->where('num_libro',$num_libro))
-                ->when($request['birth'],fn(Builder $q,$birth) => $q->where('birth',$birth))
-                ->when($request['date'],fn(Builder $q,$date) => $q->where('date',$date))
-                ->when($request['ci_child'],fn(Builder $q,$ci_child) => $q->where('ci_child',$ci_child))
-                ->when($request['ci_mother'],fn(Builder $q,$ci_mother) => $q->where('ci_mother',$ci_mother))
-                ->when($request['ci_father'],fn(Builder $q,$ci_father) => $q->where('ci_father',$ci_father))
-                ->when($request['ci_godparents_1'],fn(Builder $q,$ci_godparents_1) => $q->where('date',$ci_godparents_1))
-                ->when($request['ci_godparents_2'],fn(Builder $q,$ci_godparents_2) => $q->where('ci_godparents_2',$ci_godparents_2))
+                ->when($request->num,function(Builder $q) use ($request){
+                    $q->where('num',$request['num']);
+                })
+                ->when($request->num_folio,function(Builder $q) use ($request){
+                    $q->where('num_folio',$request['num_folio']);
+                })
+                ->when($request->num_libro,function(Builder $q) use ($request){
+                    $q->where('num_libro',$request['num_libro']);
+                })
+                ->when($request->birth,function(Builder $q) use ($request){
+                    $q->whereDate('birth',$request['birth']);
+                })
+                ->when($request->date,function(Builder $q) use ($request){
+                    $q->whereDate('date',$request['date']);
+                })
+                ->when($request->ci_child,function(Builder $q) use ($request){
+                    $q->where('ci_child',$request['ci_child']);
+                })
+                ->when($request->ci_mother,function(Builder $q) use ($request){
+                    $q->where('ci_mother',$request['ci_mother']);
+                })
+                ->when($request->ci_father,function(Builder $q) use ($request){
+                    $q->where('ci_father',$request['ci_father']);
+                })
+                ->when($request->child,function(Builder $q) use ($request){
+                    // dd('asd');
+                    $q->where('child','like', '%'.$request['child'] . '%');
+                })
+                ->when($request->ci_godparents_1,function(Builder $q) use ($request){
+                    $q->where('ci_godparents_1','like','%'. $request['ci_godparents_1'] .'%' )
+                        ->orwhere('ci_godparents_2','like','%'. $request['ci_godparents_1'] .'%' )
+                        ;
+                })
                 ;
     }
 

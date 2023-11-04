@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Document;
+use Illuminate\Http\Request;
 use Livewire\Attributes\Layout;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -37,12 +38,12 @@ class BautismoView extends Component
         ],
     ];
 
-
     #[Layout('layouts.app')]
     public function render()
     {
+        // $filter = request();
         return view('livewire.bautismo-view',[
-            'documents' => Document::OnlyBautismos()->paginate(15)
+            'documents' => Document::filter(request())->OnlyBautismos()->paginate(15),
         ]);
     }
     public function download(int $id)

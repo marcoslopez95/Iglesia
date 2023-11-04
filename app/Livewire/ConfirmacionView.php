@@ -42,7 +42,7 @@ class ConfirmacionView extends Component
     public function render()
     {
         return view('livewire.confirmacion-view',[
-            'documents' => Document::onlyConfirmaciones()->paginate(15)
+            'documents' => Document::filter(request())->onlyConfirmaciones()->paginate(15)
         ]);
     }
     public function download(int $id)

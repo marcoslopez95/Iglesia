@@ -5,6 +5,7 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Confirmaciones
         </h2>
+        @include('components.filter-component')
         <div>
             <x-btn-primary href="{{ route('confirmaciones.create') }}">
                 Crear
