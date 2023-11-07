@@ -33,11 +33,13 @@ new class extends Component
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('settings')" :active="request()->routeIs('settings')" wire:navigate>
-                        Configuraciones
-                    </x-nav-link>
-                </div>
+                @if (auth()->user()->role === 1 )
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('settings')" :active="request()->routeIs('settings')" wire:navigate>
+                            Configuraciones
+                        </x-nav-link>
+                    </div>
+                @endif
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link :href="route('confirmaciones')" :active="request()->routeIs('confirmaciones') || request()->routeIs('confirmaciones.*')" wire:navigate>
                         Confirmación

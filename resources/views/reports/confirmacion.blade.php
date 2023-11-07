@@ -75,11 +75,10 @@
                             <br>
                             <div>
                                 <div>Notas Marginales</div>
-                                <span>{{ $document->observation }}</span>
+                                <span style="font-size: 14px">{{ $document->observation }}</span>
                             </div>
                             <br>
-                            <br>
-                            <br>
+
                             <div>
                                 <div align="center">
                                     Visado

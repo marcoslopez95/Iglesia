@@ -22,6 +22,7 @@ class ReportController extends Controller
         $data['date'] = \Carbon\Carbon::parse($document->date);
         $html = view('reports.matrimonio', $data);
 
+
         return self::generateReport($html, self::MATRIMONIO);
     }
 
@@ -53,11 +54,21 @@ class ReportController extends Controller
     }
 
     private function generateReport($html, string $type){
-        $pdf = new Mpdf();
         $name = "$type-".\Carbon\Carbon::now()->format('d-m-Y_H:i:s');
+
+        if(request()->type_report == 'doc'){
+            header('Content-Type: application/vnd.msword');
+            header('Content-Disposition: attachment; filename="'.$name.'.doc"');
+            header('Cache-Control: private, max-age=0, must-revalidate');
+            return $html;
+        }
+
+        $pdf = new Mpdf();
         $pdf->WriteHTML($html);
         $pdf = new Mpdf(['tempDir'=>storage_path('tempdir')]);
         $pdf->WriteHTML($html);
+
+
         header('Content-Type: application/pdf');
         header("Content-Disposition: inline; filename='$name.pdf'");
         return $pdf->Output("$name.pdf", 'I');
