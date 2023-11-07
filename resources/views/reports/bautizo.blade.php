@@ -48,7 +48,7 @@
                                 </h4>
                                 <br>
                                 <h3 align='center'>
-                                    <u>Certificado de Confirmación</u>
+                                    <u>Certificado de Bautismo</u>
                                 </h3>
                             </div>
                         </td>
@@ -107,7 +107,7 @@
                         </td>
                         <td style=" width: 70%; padding: 0px 20px">
                             <p>
-                                Quien suscribe Pbro.: <br><span><b> {{ $setting->parroco }}</b></span> cura,<br> Párroco de esta
+                                Quien suscribe Pbro.: <br><span><b> {{ $document->parroco }}</b></span> cura,<br> Párroco de esta
                                 comunidad certifica que:
                             </p>
                             <p>

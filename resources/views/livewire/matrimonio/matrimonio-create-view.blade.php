@@ -32,12 +32,27 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('father')" />
                                 </div>
                                 <div>
-                                    <x-input-label for="mother" value="Nombre de la esposa " />
+                                    <x-input-label for="ci_father" value="Cédula del esposo" />
+                                    <x-text-input wire:model="ci_father" id="ci_father" name="ci_father" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_father')" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
+                                    <x-input-label for="mother" value="Nombre del esposa" />
                                     <x-text-input wire:model="mother" id="mother" name="mother" type="text"
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
                                     <x-input-error class="mt-2" :messages="$errors->get('mother')" />
                                 </div>
+                                <div>
+                                    <x-input-label for="ci_mother" value="Cédula de la esposa " />
+                                    <x-text-input wire:model="ci_mother" id="ci_mother" name="ci_mother" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_mother')" />
+                                </div>
                             </div>
+                            <hr>
                             <div class="grid grid-cols-2 gap-10">
                                 <div>
                                     <x-input-label for="date" value="Fecha de Matrimonio Canónico" />
@@ -54,12 +69,27 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('godparents_1')" />
                                 </div>
                                 <div>
-                                    <x-input-label for="godparents_2" value="Testigo 2" />
-                                    <x-text-input wire:model="godparents_2" id="godparents_2" name="godparents_2" type="text"
+                                    <x-input-label for="ci_godparents_1" value="Cédula Testigo 1" />
+                                    <x-text-input wire:model="ci_godparents_1" id="ci_godparents_1" name="ci_godparents_1" type="text"
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
-                                    <x-input-error class="mt-2" :messages="$errors->get('godparents_2')" />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_godparents_1')" />
                                 </div>
                             </div>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
+                                    <x-input-label for="godparents_2" value="Testigo 2" />
+                                    <x-text-input wire:model="godparents_2" id="godparents_2" name="godparents_2" type="text"
+                                        class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('godparents_2')" />
+                                </div>
+                                <div>
+                                    <x-input-label for="ci_godparents_2" value="Cédula Testigo 2" />
+                                    <x-text-input wire:model="ci_godparents_2" id="ci_godparents_2" name="ci_godparents_2" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_godparents_2')" />
+                                </div>
+                            </div>
+                            <hr>
                             <div class="grid grid-cols-1 gap-10">
                                 <div>
                                     <x-input-label for="observation" value="Observaciones" />

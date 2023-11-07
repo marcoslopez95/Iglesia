@@ -27,6 +27,8 @@ class CreateView extends Component
 
     public function mount()
     {
+        $this->parroco = (Setting::first())->parroco;
+        // $this->parroco = (Setting::first())->parroco;
         if(request()->confirmacion_id){
             $this->id = request()->confirmacion_id  ;
             $document = Document::find(request()->confirmacion_id);
@@ -43,7 +45,13 @@ class CreateView extends Component
             $this->num_folio = $document->num_folio;
             $this->num = $document->num;
             $this->observation = $document->observation;
+            $this->parroco = $document  ->parroco;
             $this->by_priets = $document->by_priets;
+            $this->ci_child = $document->ci_child;
+            $this->ci_mother = $document->ci_mother;
+            $this->ci_father = $document->ci_father;
+            $this->ci_godparents_1 = $document->ci_godparents_1;
+            $this->ci_godparents_2 = $document->ci_godparents_2;
         }
     }
 

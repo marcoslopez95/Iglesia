@@ -54,7 +54,7 @@
                 </p>
                 <p>
                     De acuerdo con el Rito de la Iglesia Católica Romana Oficiando el Rvdo.
-                    <span>{{ $setting->parroco }}</span>
+                    <span>{{ $document->parroco }}</span>
                 </p>
                 <p>
                     En presencia de los Testigos <span>{{ $document->godparents_1 }}</span> y

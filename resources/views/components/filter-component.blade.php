@@ -59,6 +59,15 @@
                                 </h3>
                                 <div class="mt-2">
                                     <div class="grid grid-cols-2 gap-10">
+                                        <div>
+                                            <x-input-label for="birth" >
+                                                <br>Cédula<br>
+                                            </x-input-label>
+                                            <x-text-input wire:model="ci" id="ci" name="ci" type="text"
+                                                class="mt-1 block w-full" autocomplete="none"/>
+                                        </div>
+                                    </div>
+                                    <div class="grid grid-cols-2 gap-10">
                                         <div class="">
                                             <x-input-label for="child" value="Nombre del niño/niña" />
                                             <x-text-input wire:model="child" id="child" name="child" type="text"

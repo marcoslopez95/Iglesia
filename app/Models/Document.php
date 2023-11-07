@@ -35,6 +35,7 @@ class Document extends Model
         'ci_father',
         'ci_godparents_1',
         'ci_godparents_2',
+        'parroco',
     ];
 
     public function scopeFilter(Builder $q,  $request)
@@ -64,6 +65,14 @@ class Document extends Model
                 })
                 ->when($request->ci_father,function(Builder $q) use ($request){
                     $q->where('ci_father',$request['ci_father']);
+                })
+                ->when($request->ci,function(Builder $q,$ci){
+                    $q->orWhere('ci_father','like','%'.$ci.'%')
+                        ->orWhere('ci_mother','like','%'.$ci.'%')
+                        ->orWhere('ci_child','like','%'.$ci.'%')
+                        ->orWhere('ci_godparents_1','like','%'.$ci.'%')
+                        ->orWhere('ci_godparents_2','like','%'.$ci.'%')
+                        ;
                 })
                 ->when($request->child,function(Builder $q) use ($request){
                     // dd('asd');

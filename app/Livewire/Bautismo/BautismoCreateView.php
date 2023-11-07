@@ -27,6 +27,7 @@ class BautismoCreateView extends Component
 
     public function mount()
     {
+        $this->parroco = (Setting::first())->parroco;
         if(request()->bautismo_id){
             $this->id = request()->bautismo_id;
             $document = Document::find(request()->bautismo_id);
@@ -43,6 +44,8 @@ class BautismoCreateView extends Component
             $this->num_folio = $document->num_folio;
             $this->num = $document->num;
             $this->observation = $document->observation;
+            $this->by_priets = $document->by_priets;
+            $this->parroco = $document->parroco;
             $this->by_priets = $document->by_priets;
         }
     }

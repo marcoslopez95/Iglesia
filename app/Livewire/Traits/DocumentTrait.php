@@ -9,13 +9,18 @@ trait DocumentTrait {
     public $num_libro = '';
     public $num_folio = '';
     public $num = '';
-
+    public $ci_child = '';
+    public $ci_mother = '';
+    public $ci_father = '';
+    public $ci_godparents_1 = '';
+    public $ci_godparents_2 = '';
     public $by_priets = '';
+    public $parroco = '';
     public function saveDocument(array $validated, int $type_document)
     {
         $validated = array_merge([
             'document_type_id' => $type_document,
-            'by_priets' => $this->by_priets ?? (Setting::first())->parroco,
+            'parroco' => $this->by_priets ?? (Setting::first())->parroco,
         ],$validated);
 
         Document::create($validated);

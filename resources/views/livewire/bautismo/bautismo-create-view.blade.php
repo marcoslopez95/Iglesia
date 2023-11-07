@@ -32,10 +32,25 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('child')" />
                                 </div>
                                 <div>
+                                    <x-input-label for="ci_child" value="Nro registro Civil" />
+                                    <x-text-input wire:model="ci_child" id="ci_child" name="ci_child" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_child')" />
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
                                     <x-input-label for="mother" value="Nombre de la mamá" />
                                     <x-text-input wire:model="mother" id="mother" name="mother" type="text"
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
                                     <x-input-error class="mt-2" :messages="$errors->get('mother')" />
+                                </div>
+                                <div class="">
+                                    <x-input-label for="ci_mother" value="Cédula de la mamá" />
+                                    <x-text-input wire:model="ci_mother" id="ci_mother" name="ci_mother" type="text"
+                                        class="mt-1 block w-full" required autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_mother')" />
                                 </div>
                             </div>
                             <div class="grid grid-cols-2 gap-10">
@@ -45,6 +60,15 @@
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
                                     <x-input-error class="mt-2" :messages="$errors->get('father')" />
                                 </div>
+                                <div>
+                                    <x-input-label for="ci_father" value="Cédula del papá" />
+                                    <x-text-input wire:model="ci_father" id="ci_father" name="ci_father" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_father')" />
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="grid grid-cols-2 gap-10">
                                 <div>
                                     <x-input-label for="place_birth" value="Lugar de Nacimiento" />
                                     <x-text-input wire:model="place_birth" id="place_birth" name="place_birth" type="text"
@@ -60,12 +84,27 @@
                                     <x-input-error class="mt-2" :messages="$errors->get('godparents_1')" />
                                 </div>
                                 <div>
-                                    <x-input-label for="godparents_2" value="Padrino/Madrina" />
+                                    <x-input-label for="ci_godparents_1" value="Cédula Padrino/Madrina" />
+                                    <x-text-input wire:model="ci_godparents_1" id="ci_godparents_1" name="ci_godparents_1" type="text"
+                                        class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_godparents_1')" />
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-10">
+                                <div>
+                                    <x-input-label for="godparents_2" value="Padrino Padrino/Madrina" />
                                     <x-text-input wire:model="godparents_2" id="godparents_2" name="godparents_2" type="text"
                                         class="mt-1 block w-full" autofocus autocomplete="Nombre Completo..." />
                                     <x-input-error class="mt-2" :messages="$errors->get('godparents_2')" />
                                 </div>
+                                <div>
+                                    <x-input-label for="ci_godparents_2" value="Cédula Padrino/Madrina" />
+                                    <x-text-input wire:model="ci_godparents_2" id="ci_godparents_2" name="ci_godparents_2" type="text"
+                                        class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('ci_godparents_2')" />
+                                </div>
                             </div>
+                            <hr>
                             <div class="grid grid-cols-2 gap-10">
                                 <div>
                                     <x-input-label for="birth" value="Fecha de Nacimiento" />
@@ -82,12 +121,19 @@
                             </div>
                             <div class="grid grid-cols-2 gap-10">
                                 <div>
+                                    <x-input-label for="parroco" value="Parroco principal" />
+                                    <x-text-input wire:model="parroco" id="parroco" name="parroco" type="text"
+                                    class="mt-1 block w-full"/>
+                                    <x-input-error class="mt-2" :messages="$errors->get('parroco')" />
+                                </div>
+                                <div>
                                     <x-input-label for="by_priets" value="Confirmado por" />
-                                    <p class="mt-1 text-sm text-gray-600">
-                                        Si lo deja vacío se cargara con los datos del parroco cargado en configuraciones
-                                    </p>
+
                                     <x-text-input wire:model="by_priets" id="by_priets" name="by_priets" type="text"
                                         class="mt-1 block w-full"/>
+                                        <p class="mt-1 text-sm text-gray-600">
+                                            Si lo deja vacío se cargara con los datos del parroco cargado en configuraciones
+                                        </p>
                                     <x-input-error class="mt-2" :messages="$errors->get('birth')" />
                                 </div>
                             </div>

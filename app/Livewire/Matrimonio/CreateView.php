@@ -27,6 +27,7 @@ class CreateView extends Component
     public $id;
     public function mount()
     {
+        $this->parroco = (Setting::first())->parroco;
         if(request()->matrimonio_id){
             $this->id = request()->matrimonio_id;
             $document = Document::find(request()->matrimonio_id);
@@ -43,6 +44,8 @@ class CreateView extends Component
             $this->num_folio = $document->num_folio;
             $this->num = $document->num;
             $this->observation = $document->observation;
+            $this->parroco = $document->parroco;
+            $this->by_priets = $document->by_priets;
         }
     }
 
